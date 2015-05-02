@@ -1,2 +1,76 @@
-<h2>Showing {{etsy.results.length}} products</h2>
-<div layout="row" key="ez1dnf9z37v2pdunpcrufkrk" active-listings></div>
+<section layout="row" controller="MainCtrl">
+
+  <div layout="column" flex>
+  
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>
+          <md-icon class="fa fa-shopping-cart"></md-icon>&nbsp;
+          <span>Etsy Listings</span>
+          <small>( {{etsy.results.length}} / {{etsy.count | number}} )</small>
+        </h2>
+        <span flex></span>
+        <md-input-container md-theme="docs-dark">
+            <label for="testInput">Search Products</label>
+            <input type="text" data-ng-model="productsFilter" style="color:white;" md-sidenav-focus>
+          </md-input-container>
+        <md-button class="md-icon-button" aria-label="Favorite">
+          <md-icon md-svg-icon="images/icons/favorite.svg" style="color: white;" data-ng-click="toggleBookmarks()"></md-icon>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="More">
+          <md-icon md-svg-icon="images/icons/more_vert.svg" style="color: white;" ></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-content layout-align="center center" layout-margin>
+      
+      <div 
+        layout="row" 
+        layout-sm="column" 
+        layout-align="space-around" 
+        layout-padding
+        data-ng-show="!etsy.results || etsy.results.length === 0" >
+        <md-progress-circular 
+          md-mode="indeterminate"></md-progress-circular>
+      </div>
+
+      <div 
+        layout-margin 
+        layout-fill 
+        layout-padding 
+        key="ez1dnf9z37v2pdunpcrufkrk" 
+        active-listings></div>
+
+    </md-content>
+  
+  </div>
+
+  <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">
+        <md-icon class="fa fa-bookmark"></md-icon>
+        Bookmarks
+        <span flex></span>
+        <md-button
+          title="Bookmark"
+          aria-label="Close Bookmarks"
+          style="float:right;"
+          data-ng-click="close()">
+          <md-icon class="fa fa-times"></md-icon>
+        </md-button>
+        </h1>
+      </md-toolbar>
+      
+      <md-content layout-padding>
+        <form>
+          <md-input-container>
+            <label for="testInput">Search Bookmarks</label>
+            <input type="text" id="testInput"
+                   ng-model="bookmarksFilter" md-sidenav-focus>
+          </md-input-container>
+        </form>
+      </md-content>
+    </md-sidenav>
+
+</section>

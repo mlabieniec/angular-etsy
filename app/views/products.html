@@ -1,25 +1,36 @@
-
-	<md-content data-ng-repeat="product in etsy.results" flex>
-		<md-card>
-			<md-card-content>
-	    		<h2 class="md-title">{{product.title}}</h2>
-	    		<p>{{product.description}}</p>
-	    	</md-card-content>
-	    	<div class="md-actions" layout="row" layout-align="end center">
-		        <md-button
-		        	title="Bookmark"
-		        	aria-label="Etsy"
-		        	ng-disabled="isProductBookmarked(product)">
-		        	<md-icon class="fa fa-bookmark"></md-icon>
-		        </md-button>
-		        <md-button data-ng-href="{{product.url}}"
-                 title="Launch product in new window"
-                 target="_blank"
-                 ng-disabled="{{!product.url}}"
-                 aria-label="Etsy"
-                 class="md-icon-button launch" >
-                 	<md-icon class="fa fa-external-link"></md-icon>
-                 </md-button>
-	      	</div>
-		</md-card>
-	</md-content>
+<md-content layout="column" class="md-padding">
+    <md-grid-list 
+    	md-cols="4" 
+    	md-cols-sm="1" 
+    	md-cols-md="2" 
+    	md-gutter="1em" 
+    	md-row-height="4:3">
+        <md-grid-tile data-ng-repeat="product in etsy.results | filter:productsFilter" md-rowspan="1" md-colspan="1">
+            <md-card class="product-card">
+            	<md-card-content>
+					<h4 class="md-title">
+					<md-icon class="fa fa-tag"></md-icon>&nbsp;
+					{{product.title}}</h4>
+					<p class="product-description">{{product.description}}</p>
+					<div class="md-actions" layout="row" style="float:right;">
+			        <md-button
+			        	title="Bookmark"
+			        	aria-label="Etsy"
+			        	data-ng-disabled="isProductBookmarked(product)"
+			        	data-ng-click="bookmarkProduct(product)">
+			        	<md-icon class="fa fa-bookmark"></md-icon>
+			        </md-button>
+			        <md-button data-ng-href="{{product.url}}"
+			         title="Launch product in new window"
+			         target="_blank"
+			         ng-disabled="{{!product.url}}"
+			         aria-label="Etsy"
+			         class="md-icon-button launch" >
+			         	<md-icon class="fa fa-external-link"></md-icon>
+			         </md-button>
+			  	</div>
+				</md-card-content>
+            </md-card>
+        </md-grid-tile>
+    </md-grid-list>
+</md-content>

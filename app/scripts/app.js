@@ -22,7 +22,13 @@ angular
     'ngTouch',
     'ngMaterial'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider,$mdThemingProvider) {
+
+    $mdThemingProvider.theme('default')
+        .primaryPalette('deep-orange');
+    $mdThemingProvider.theme('docs-dark')
+        .primaryPalette('blue-grey');
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
