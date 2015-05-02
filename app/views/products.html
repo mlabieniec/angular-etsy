@@ -1,4 +1,6 @@
-<md-content layout="column" class="md-padding">
+<div 
+	layout="column" 
+	class="md-padding" flex>
     <md-grid-list 
     	md-cols="4" 
     	md-cols-sm="1" 
@@ -8,29 +10,39 @@
         <md-grid-tile data-ng-repeat="product in etsy.results | filter:productsFilter" md-rowspan="1" md-colspan="1">
             <md-card class="product-card">
             	<md-card-content>
-					<h4 class="md-title">
-					<md-icon class="fa fa-tag"></md-icon>&nbsp;
-					{{product.title}}</h4>
-					<p class="product-description">{{product.description}}</p>
-					<div class="md-actions" layout="row" style="float:right;">
-			        <md-button
-			        	title="Bookmark"
-			        	aria-label="Etsy"
-			        	data-ng-disabled="isProductBookmarked(product)"
-			        	data-ng-click="bookmarkProduct(product)">
-			        	<md-icon class="fa fa-bookmark"></md-icon>
-			        </md-button>
-			        <md-button data-ng-href="{{product.url}}"
-			         title="Launch product in new window"
-			         target="_blank"
-			         ng-disabled="{{!product.url}}"
-			         aria-label="Etsy"
-			         class="md-icon-button launch" >
-			         	<md-icon class="fa fa-external-link"></md-icon>
-			         </md-button>
-			  	</div>
+					<h4 class="md-title" data-ng-bind-html="product.title"></h4>
+					<p data-ng-bind-html="product.description" class="product-description"></p>...
+					<div layout="row" layout-align="end center">
+			        
+				        <md-button
+				        	title="Bookmark"
+				        	aria-label="Etsy"
+				        	data-ng-show="!isProductBookmarked(product)"
+				        	data-ng-click="bookmarkProduct(product)">
+				        	<md-icon class="fa fa-bookmark"></md-icon>
+				        </md-button>
+
+				        <md-button
+				        	title="Favorite"
+				        	aria-label="Favorite"
+				        	data-ng-show="isProductBookmarked(product)"
+				        	data-ng-click="removeBookmark(product)">
+				        	<md-icon class="fa fa-heart" style="color:orange;"></md-icon>
+				        </md-button>
+				        
+				        <md-button 
+				        	data-ng-href="{{product.url}}"
+				         	title="Launch product in new window"
+				         	target="_blank"
+				         	data-ng-disabled="{{!product.url}}"
+				         	aria-label="Etsy"
+				         	class="md-icon-button launch" >
+				         	<md-icon class="fa fa-external-link"></md-icon>
+				         </md-button>
+
+		  			</div>
 				</md-card-content>
             </md-card>
         </md-grid-tile>
     </md-grid-list>
-</md-content>
+</div>

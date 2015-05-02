@@ -20,14 +20,18 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngMaterial'
+    'ngMaterial',
+    'LocalStorageModule'
   ])
-  .config(function ($routeProvider,$mdThemingProvider) {
+  .config(function ($routeProvider,$mdThemingProvider,localStorageServiceProvider) {
 
     $mdThemingProvider.theme('default')
         .primaryPalette('deep-orange');
-    $mdThemingProvider.theme('docs-dark')
-        .primaryPalette('blue-grey');
+    //$mdThemingProvider.theme('docs-dark')
+    //    .primaryPalette('blue-grey');
+
+    localStorageServiceProvider
+    .setPrefix('etsyApp');
 
     $routeProvider
       .when('/', {

@@ -5,8 +5,28 @@
   padding: 0.2em 0;
 }
 
-body {
+html,body {
   padding: 0;
+  height:100%;
+  overflow:hidden;
+}
+
+.app {
+  height:100%;
+}
+
+.app-section {
+  height:100%;
+}
+
+.main {
+  margin-top:65px;
+  height:100%;
+  overflow:auto;
+}
+
+.main-toolbar {
+  position:fixed;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
