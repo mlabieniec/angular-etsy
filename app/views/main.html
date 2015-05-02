@@ -1,4 +1,7 @@
-<section class="app-section" layout="row" data-ng-controller="MainCtrl" flex>
+<section 
+  class="app-section" 
+  layout="row" 
+  data-ng-controller="MainCtrl" flex>
 
   <div layout="column" flex>
   
@@ -28,7 +31,7 @@
       <div 
         layout="row" 
         layout-sm="column" 
-        layout-align="space-around center" 
+        layout-align="space-around" 
         data-ng-show="!etsy.results || etsy.results.length === 0" >
         <md-progress-circular 
           md-mode="indeterminate"></md-progress-circular>
@@ -42,8 +45,8 @@
 
   <md-sidenav 
     class="md-sidenav-right md-whiteframe-z2" 
-    md-component-id="right" 
-    data-ng-init="initBookmarks()">
+    md-component-id="right">
+
       <md-toolbar class="md-theme-light">
         <h1 class="md-toolbar-tools">
         <md-icon class="fa fa-bookmark"></md-icon>
@@ -53,7 +56,7 @@
           title="Bookmark"
           aria-label="Close Bookmarks"
           style="float:right;"
-          data-ng-click="close()">
+          data-ng-click="closeBookmarksNav()">
           <md-icon class="fa fa-times"></md-icon>
         </md-button>
         </h1>

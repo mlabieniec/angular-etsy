@@ -8,11 +8,10 @@
     	md-gutter="1em" 
     	md-row-height="4:3">
         <md-grid-tile data-ng-repeat="product in etsy.results | filter:productsFilter" md-rowspan="1" md-colspan="1">
-            <md-card class="product-card">
-            	<md-card-content>
-					<h4 class="md-title" data-ng-bind-html="product.title"></h4>
-					<p data-ng-bind-html="product.description" class="product-description"></p>...
-					<div layout="row" layout-align="end center">
+            <md-card class="product-card" id="prod_card_{{product.listing_id}}">
+            	<md-toolbar md-scroll-shrink>
+				    <div class="md-toolbar-tools">
+				      <div layout="row" layout-align="end center">
 			        
 				        <md-button
 				        	title="Bookmark"
@@ -27,7 +26,7 @@
 				        	aria-label="Favorite"
 				        	data-ng-show="isProductBookmarked(product)"
 				        	data-ng-click="removeBookmark(product)">
-				        	<md-icon class="fa fa-heart" style="color:orange;"></md-icon>
+				        	<md-icon class="fa fa-heart" style="color:green;"></md-icon>
 				        </md-button>
 				        
 				        <md-button 
@@ -41,6 +40,24 @@
 				         </md-button>
 
 		  			</div>
+				    </div>
+				</md-toolbar>
+            	
+            	<img class="product-image" src="{{product.Images[0].url_570xN}}" alt="Product Image"/>
+            	
+            	<md-card-content>
+
+					<p class="md-title product-title" data-ng-bind-html="product.title"></p>
+					
+					<md-button class="md-fab md-fab-top-right right" aria-label="Description" data-ng-href="{{product.url}}"
+				         	title="Launch product in new window"
+				         	target="_blank">
+				      <md-icon class="fa fa-external-link" style="font-size:24px;margin-top:8px;"></md-icon>
+				      <md-tooltip>
+				        <span data-ng-bind-html="product.description"></span>
+				      </md-tooltip>
+				    </md-button>
+
 				</md-card-content>
             </md-card>
         </md-grid-tile>

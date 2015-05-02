@@ -9,15 +9,8 @@
  */
 angular.module('etsyApp')
   .controller('MainCtrl', function ($scope,$log,$sce,$mdSidenav,$mdUtil,localStorageService) {
-  	
+
   	$scope.unbindBookmarks = localStorageService.bind($scope, 'bookmarks');
-    
-    var listener = $scope.$watch('etsy',function(etsy) {
-    	if(etsy) {
-    		$log.debug($scope.etsy);
-    		listener();
-    	}
-    });
     
     var buildToggler = function(navID) {
       var debounceFn =  $mdUtil.debounce(function(){
@@ -44,25 +37,16 @@ angular.module('etsyApp')
 	    return size;
 	};
 
-    $scope.close = function () {
-      $mdSidenav('right').close()
-        .then(function () {
-          $log.debug('close bookmarks');
-        });
-    };
-
-    $scope.initBookmarks = function() {
-    	$log.debug($scope.bookmarks);
+    $scope.closeBookmarksNav = function () {
+      $mdSidenav('right').close();
     };
 
     $scope.bookmarkProduct = function(product) {
     	if (!$scope.bookmarks) $scope.bookmarks = {};
-
     	if (!$scope.bookmarks[product.listing_id]) {
     		$scope.bookmarks[product.listing_id] = product;
-    		$log.debug($scope.bookmarks);
     	} else {
-    		removeBookmark(product);
+    		$scope.removeBookmark(product);
     	}
     };
 

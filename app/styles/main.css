@@ -20,6 +20,7 @@ html,body {
 }
 
 .main {
+  padding-top:15px;
   margin-top:65px;
   height:100%;
   overflow:auto;
@@ -80,13 +81,24 @@ html,body {
 }
 
 .product-card {
-  max-height:500px;
+  height:340px;
+  width:430px;
 }
 
-.product-description {
+.product-image {
+  height:285px;
+}
+
+.product-title {
+  max-height:50px;
+  font-size:80%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.product-description-short {
   max-height:150px;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 /* Responsive: Portrait tablets and up */
