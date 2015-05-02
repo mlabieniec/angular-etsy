@@ -10,7 +10,7 @@
         <h2>
           <md-icon class="fa fa-shopping-cart"></md-icon>&nbsp;
           <span>Etsy Listings</span>
-          <small>( {{etsy.results.length}} / {{etsy.count | number}} )</small>
+          <small>( {{products.length}} / {{etsy.count | number}} )</small>
         </h2>
         <span flex></span>
         <md-input-container md-theme="docs-dark">
@@ -27,15 +27,6 @@
     </md-toolbar>
 
     <div class="main" layout-margin flex>
-      
-      <div 
-        layout="row" 
-        layout-sm="column" 
-        layout-align="space-around" 
-        data-ng-show="!etsy.results || etsy.results.length === 0" >
-        <md-progress-circular 
-          md-mode="indeterminate"></md-progress-circular>
-      </div>
 
       <div key="ez1dnf9z37v2pdunpcrufkrk" active-listings></div>
 
@@ -74,23 +65,23 @@
               <md-card>
                 <md-card-content>
                   <p class="md-title" data-ng-bind-html="bookmark.title"></p>
-                  <div layout-align="end center" layout="row">
+                  <div layout-align="left center" layout="row">
                     
                     <md-button data-ng-href="{{bookmark.url}}"
-                     title="Launch product in new window"
                      target="_blank"
                      ng-disabled="{{!bookmark.url}}"
                      aria-label="Etsy"
                      class="md-icon-button launch" >
                       <md-icon class="fa fa-external-link"></md-icon>
+                      <md-tooltip>Launch product in new window</md-tooltip>
                      </md-button>
                     
                     <md-button
-                      title="Remove Bookmark"
                       aria-label="Remove Bookmark"
                       style="float:right;"
                       data-ng-click="removeBookmark(bookmark)">
                       <md-icon class="fa fa-trash"></md-icon>
+                      <md-tooltip>Remove Bookmark</md-tooltip>
                     </md-button>
 
                    </div>

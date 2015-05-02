@@ -26,7 +26,7 @@ angular
   .config(function ($routeProvider,$mdThemingProvider,localStorageServiceProvider) {
 
     $mdThemingProvider.theme('default')
-        .primaryPalette('deep-orange');
+        .primaryPalette('deep-purple');
     //$mdThemingProvider.theme('docs-dark')
     //    .primaryPalette('blue-grey');
 

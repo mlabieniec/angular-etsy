@@ -8,10 +8,12 @@
  * Controller of the etsyApp
  */
 angular.module('etsyApp')
-  .controller('MainCtrl', function ($scope,$log,$sce,$mdSidenav,$mdUtil,localStorageService) {
+  .controller('MainCtrl', function ($scope,$log,$sce,$mdSidenav,$mdUtil,$mdDialog,localStorageService) {
 
   	$scope.unbindBookmarks = localStorageService.bind($scope, 'bookmarks');
     
+    $scope.page = 1;
+
     var buildToggler = function(navID) {
       var debounceFn =  $mdUtil.debounce(function(){
             $mdSidenav(navID)
@@ -35,7 +37,7 @@ angular.module('etsyApp')
 	        if ($scope.bookmarks.hasOwnProperty(key)) size++;
 	    }
 	    return size;
-	};
+    };
 
     $scope.closeBookmarksNav = function () {
       $mdSidenav('right').close();
@@ -51,7 +53,34 @@ angular.module('etsyApp')
     };
 
     $scope.isProductBookmarked = function(product) {
-    	return $scope.bookmarks[product.listing_id];
+    	return ($scope.bookmarks)?$scope.bookmarks[product.listing_id]:false;
     };
+
+    $scope.loadMoreListings = function() {
+      $scope.page = $scope.etsy.pagination.next_page;
+    };
+
+    $scope.openProductDetails = function($event,product) {
+      $mdDialog.show({
+        locals: {
+           'product': product
+         },
+        controller: DialogController,
+        templateUrl: 'views/details.html',
+        targetEvent:$event
+      })
+      .then(function(answer) {
+        $scope.alert = 'You said the information was "' + answer + '".';
+      }, function() {
+        $scope.alert = 'You cancelled the dialog.';
+      });
+    };
+
+    function DialogController($scope, $mdDialog, product) {
+      $scope.product = product;
+      $scope.closeDetails = function() {
+        $mdDialog.hide();
+      };
+    }
 
   });

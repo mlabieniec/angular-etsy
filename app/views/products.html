@@ -7,18 +7,18 @@
     	md-cols-md="2" 
     	md-gutter="1em" 
     	md-row-height="4:3">
-        <md-grid-tile data-ng-repeat="product in etsy.results | filter:productsFilter" md-rowspan="1" md-colspan="1">
+        <md-grid-tile data-ng-repeat="product in products | filter:productsFilter" md-rowspan="1" md-colspan="1" data-ng-if="product.title && product.Images[0]">
             <md-card class="product-card" id="prod_card_{{product.listing_id}}">
             	<md-toolbar md-scroll-shrink>
 				    <div class="md-toolbar-tools">
 				      <div layout="row" layout-align="end center">
 			        
 				        <md-button
-				        	title="Bookmark"
 				        	aria-label="Etsy"
 				        	data-ng-show="!isProductBookmarked(product)"
 				        	data-ng-click="bookmarkProduct(product)">
-				        	<md-icon class="fa fa-bookmark"></md-icon>
+				        	<md-icon class="fa fa-star"></md-icon>
+				        	<md-tooltip>Bookmark this Product</md-tooltip>
 				        </md-button>
 
 				        <md-button
@@ -27,18 +27,28 @@
 				        	data-ng-show="isProductBookmarked(product)"
 				        	data-ng-click="removeBookmark(product)">
 				        	<md-icon class="fa fa-heart" style="color:green;"></md-icon>
+				        	<md-tooltip>Remove from Your Bookmarks</md-tooltip>
 				        </md-button>
 				        
 				        <md-button 
 				        	data-ng-href="{{product.url}}"
-				         	title="Launch product in new window"
 				         	target="_blank"
 				         	data-ng-disabled="{{!product.url}}"
 				         	aria-label="Etsy"
 				         	class="md-icon-button launch" >
 				         	<md-icon class="fa fa-external-link"></md-icon>
+				         	<md-tooltip>Open in Etsy</md-tooltip>
 				         </md-button>
 
+				         <md-button 
+						class="md-icon-button" aria-label="Description" 
+						data-ng-if="product.Shop"
+						data-ng-click="openProductDetails($event,product)">
+				      <md-icon class="fa fa-info-circle"></md-icon>
+				      <md-tooltip>
+				        <span data-ng-bind-html="(product.Shop.title)?product.Shop.title:'<strong>View Product Details</strong>'"></span>
+				      </md-tooltip>
+				    </md-button>
 		  			</div>
 				    </div>
 				</md-toolbar>
@@ -49,17 +59,31 @@
 
 					<p class="md-title product-title" data-ng-bind-html="product.title"></p>
 					
-					<md-button class="md-fab md-fab-top-right right" aria-label="Description" data-ng-href="{{product.url}}"
-				         	title="Launch product in new window"
-				         	target="_blank">
-				      <md-icon class="fa fa-external-link" style="font-size:24px;margin-top:8px;"></md-icon>
-				      <md-tooltip>
-				        <span data-ng-bind-html="product.description"></span>
-				      </md-tooltip>
-				    </md-button>
+					
 
 				</md-card-content>
             </md-card>
         </md-grid-tile>
     </md-grid-list>
+
+    <div 
+    	layout="row" 
+    	layout-align="center center"
+    	layout-padding
+    	flex>
+
+    <md-progress-circular 
+      md-mode="indeterminate" 
+      data-ng-show="loading"></md-progress-circular>
+  	
+  	<md-button 
+  		class="md-primary" 
+  		data-ng-if="products" 
+  		data-ng-click="loadMoreListings()" 
+  		data-ng-show="!loading">
+    	LOAD MORE
+    </md-button>
+
+  	</div>
+
 </div>

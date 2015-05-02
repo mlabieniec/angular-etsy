@@ -1,0 +1,24 @@
+<md-dialog aria-label="{{product.title}}" layout-margin>
+  <md-toolbar md-scroll-shrink>
+    <div layout-padding>
+      <h4 data-ng-bind-html="(product.Shop.title)?product.Shop.title:product.title"></h4>
+    </div>
+  </md-toolbar>
+  <md-dialog-content class="sticky-container" layout-padding>
+    <md-subheader class="md-sticky-no-effect" data-ng-bind-html="product.title" data-ng-show="product.Shop.title"></md-subheader>
+    <div>
+    <img style="float:left;margin:10px;border:1px solid #CCCCCC;" alt="Product image" data-ng-src="{{product.Images[0].url_170x135}}">
+      <p class="product-details-description" data-ng-bind-html="product.description"></p>
+    </div>
+  </md-dialog-content>
+  <div class="md-actions" layout="row">
+    <md-button data-ng-href="{{product.Shop.url}}" target="_blank" class="md-primary">
+      <md-icon class="fa fa-external-link"></md-icon>
+      Visit Shop on Etsy
+    </md-button>
+    <md-button ng-click="closeDetails()" class="md-primary">
+      <md-icon class="fa fa-times"></md-icon>
+      Close
+    </md-button>
+  </div>
+</md-dialog>
