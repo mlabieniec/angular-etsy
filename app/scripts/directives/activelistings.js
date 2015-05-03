@@ -20,7 +20,7 @@ angular.module('etsyApp')
             } else {
               for (var i = data.results.length - 1; i >= 0; i--) {
                 scope.products.push(data.results[i]);
-              };
+              }
             }
             scope.loading = false;
       			scope.$apply();
@@ -28,12 +28,12 @@ angular.module('etsyApp')
 	     } else if (!attrs.key) {
 	    	$log.error('No etsy key specified on activeListings directive!');
 	     }
-
        scope.$watch('page',function(page) {
         scope.loading = true;
-        $.getScript('https://openapi.etsy.com/v2/listings/active.js?callback=getEtsyData&includes=Images,Shop&page='+page+'&api_key='+attrs.key, function() {});
+        var s = document.createElement('script'); // use global document since Angular's $document is weak
+            s.src = 'https://openapi.etsy.com/v2/listings/active.js?callback=getEtsyData&includes=Images,Shop&page='+page+'&api_key='+attrs.key;
+        document.body.appendChild(s);
        });
-
       }
     };
   });

@@ -34,7 +34,9 @@ angular.module('etsyApp')
     $scope.numBookmarks = function() {
 	    var size = 0, key;
 	    for (key in $scope.bookmarks) {
-	        if ($scope.bookmarks.hasOwnProperty(key)) size++;
+	        if ($scope.bookmarks.hasOwnProperty(key)) {
+            size++;
+          }
 	    }
 	    return size;
     };
@@ -44,7 +46,9 @@ angular.module('etsyApp')
     };
 
     $scope.bookmarkProduct = function(product) {
-    	if (!$scope.bookmarks) $scope.bookmarks = {};
+    	if (!$scope.bookmarks) {
+        $scope.bookmarks = {};
+      }
     	if (!$scope.bookmarks[product.listing_id]) {
     		$scope.bookmarks[product.listing_id] = product;
     	} else {
