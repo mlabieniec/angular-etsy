@@ -40,5 +40,5 @@ angular
       });
   })
   .constant('ETSY', {
-    key: 'YOUR_API_KEY'
+    key: 'ez1dnf9z37v2pdunpcrufkrk'
   });
