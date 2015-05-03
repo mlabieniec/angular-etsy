@@ -1,6 +1,6 @@
 # etsy angular
 
-An example app using [angular](https://angularjs.org), [Google Material Design](http://www.google.com/design/spec/material-design/introduction.html) with (angular-material)[https://material.angularjs.org]. The app is 100% client side, and allows you tosearch and bookmark [etsy](https://etsy.com) active listings using the etsy JSONP REST API.
+An example app using [Angular JS](https://angularjs.org), [Google Material Design](http://www.google.com/design/spec/material-design/introduction.html) with (angular-material)[https://material.angularjs.org]. The app is 100% client side, and allows you tosearch and bookmark [etsy](https://etsy.com) active listings using the etsy JSONP REST API.
 
 ## Build & development
 
