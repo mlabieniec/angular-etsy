@@ -2,7 +2,15 @@
   <md-toolbar scroll-shrink>
     <div class="md-toolbar-tools" layout-padding>
       <h4 data-ng-bind-html="(product.Shop.title)?product.Shop.title:product.title"></h4>
+      &nbsp;
+      <div class="product-category-tags">
+        <small class="product-category-tag" data-ng-repeat="cat in product.category_path">
+          {{cat}}&nbsp;
+        </small>
+      </div>
+
       <span flex></span>
+
       <md-button data-ng-href="product.Shop.url">
       <md-icon class="fa fa-external-link"></md-icon>
       Visit Shop</md-button>

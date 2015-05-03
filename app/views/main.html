@@ -4,35 +4,63 @@
   data-ng-controller="MainCtrl" flex>
 
   <div layout="column" flex>
-  
-    <md-toolbar class="main-toolbar">
-      <div class="md-toolbar-tools">
-        <h2>
-          <md-button class="md-icon-button" aria-label="Settings">
-            <md-icon md-svg-icon="images/icons/menu.svg"></md-icon>
-          </md-button>
-          <h2>Etsy <span hide-sm>Listings</span></h2>
-          &nbsp;
-          <small class="page-text" data-ng-if="etsy.count" hide-sm>( Viewing <strong>{{products.length}}</strong> out of <strong>{{etsy.count | number}}</strong> total products)</small>
-        </h2>
-        <span flex></span>
-        <md-input-container md-theme="docs-dark">
-            <label for="testInput">Search Products</label>
-            <input type="text" data-ng-model="productsFilter" style="color:white;" md-sidenav-focus>
-          </md-input-container>
-        <md-button class="md-icon-button" aria-label="Favorite">
-          <md-icon md-svg-icon="images/icons/favorite.svg" style="color: white;" data-ng-click="toggleBookmarks()"></md-icon>
-          <md-tooltip>{{numBookmarks()}}</md-tooltip>
-        </md-button>
+
+    <div layout="row" flex>
+      <!-- Left sidenav -->
+      <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+        
+        <md-toolbar class="md-theme-indigo">
+          <h1 class="md-toolbar-tools">Etsy Listings</h1>
+        </md-toolbar>
+
+        <md-content>
+
+          <md-list hide-md show-gt-md>
+            <md-subheader class="md-no-sticky">Categories</md-subheader>
+            <md-list-item 
+              class="md-1-line" 
+              data-ng-repeat="cat in categories">
+                <md-checkbox 
+                  aria-label="{{cat}}"
+                  data-ng-change="filterByCategory(cat)"
+                  data-ng-model="cat.selected">
+                  {{cat.label}}
+                  <small>( {{getProductCount(cat)}} )</small>
+                  </md-checkbox>
+            </md-list-item>
+          </md-list>
+
+        </md-content>
+
+      </md-sidenav>
+
+      <!-- Main listings view -->
+      <div layout="column" flex>
+        <!-- Main toolbar -->
+        <md-toolbar class="main-toolbar">
+          <div class="md-toolbar-tools">
+            <h2>
+
+              <md-icon 
+                  md-svg-icon="images/icons/more_vert.svg"></md-icon>
+
+              <small class="page-text" data-ng-if="etsy.count" hide-sm>( Viewing <strong>{{products.length}}</strong> out of <strong>{{etsy.count | number}}</strong> total products)</small>
+            </h2>
+            <span flex></span>
+            <md-input-container md-theme="docs-dark">
+                <label for="testInput">Search Products</label>
+                <input type="text" data-ng-model="productsFilter" style="color:white;" md-sidenav-focus>
+              </md-input-container>
+            <md-button class="md-icon-button" aria-label="Favorite">
+              <md-icon md-svg-icon="images/icons/favorite.svg" style="color: white;" data-ng-click="toggleBookmarks()"></md-icon>
+              <md-tooltip>{{numBookmarks()}}</md-tooltip>
+            </md-button>
+          </div>
+        </md-toolbar>
+
+        <div class="main" layout-padding key="{{etsyApiKey}}" active-listings></div>
       </div>
-    </md-toolbar>
-
-    <div class="main" layout-margin flex>
-
-      <div key="{{etsyApiKey}}" active-listings></div>
-
     </div>
-  
   </div>
 
   <md-sidenav 
