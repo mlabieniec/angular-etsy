@@ -31,7 +31,7 @@ This will generator the boilerplate angular controller and tests. Full docs [her
 All css dependancies are automatically wired from bower_components into index.html via grunt when launching or building. See [here](https://github.com/mlabieniec/angular-etsy/blob/master/app/index.html#L11) and [here](https://github.com/mlabieniec/angular-etsy/blob/master/Gruntfile.js#L179) for details.
 
 ### Local Storage
-Data is stored via local storage driver, and $scope bindings provided by [angular-local-storage](https://github.com/grevory/angular-local-storage).
+Data is stored via local storage driver, and uses $scope bindings provided by [angular-local-storage](https://github.com/grevory/angular-local-storage). The (bookmarks $scope map)[https://github.com/mlabieniec/angular-etsy/blob/master/app/scripts/controllers/main.js#L13] is bound to local storage, so there is no need to CRUD or interact with the local store, just update the $scope variable.
 
 ## Testing
 
