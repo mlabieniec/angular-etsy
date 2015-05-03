@@ -32,7 +32,7 @@ angular.module('etsyApp')
       if (products && products.length > 0) {
         angular.forEach(products, function(product) {
             for (var i = product.category_path.length - 1; i >= 0; i--) {
-              $scope.categories[product.category_path_ids[i]] = {
+              $scope.categories[product.category_path[i]] = {
                 'id':product.category_path_ids[i],
                 'label':product.category_path[i],
                 'selected':true
@@ -57,6 +57,7 @@ angular.module('etsyApp')
 
     $scope.getIsProductVisible = function(product) {
       var catSelected = true;
+      //this should be improved to search through multiple categories
       angular.forEach($scope.categories,function(cat) {
         if (product.category_id === cat.id) {
           catSelected = cat.selected;
