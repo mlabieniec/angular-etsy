@@ -6,7 +6,7 @@ An example app using [Angular JS](https://angularjs.org), [Google Material Desig
 
 Best viewed in [Google Chrome](https://google.com/chrome)
 
-#### Overview
+## Overview
 The Etsy API JSONP interface is handled with a directive instead of a service since it requires loading a javascript file (to deal with CORS). This way the product listing could potentially be injected into any view, all that is needed is to inject the API key. The main Etsy configuration is set as a constant in the app configuration so that it may be used to make other calls if needed, you simply need to inject the 'ETSY' provider into your component. Google Material was used for the UI for simplicity, responsiveness, and rapid component prototyping, and well, cause it looks cool and I'm really tired of bootstrap :) Local storage is set as a binding in the controller instead of a service so as to avoid the need of injecting any other components, simply inject the local storage provider and bind to a $scope variable this way you only need to interact with your $scope as usual.
 
 A "Load More" is used to load more products, instead of pagination to simplify the $scope bindings, and allow for a more fluid interface. Infinite scroll could be added to improve the overall user experience.
