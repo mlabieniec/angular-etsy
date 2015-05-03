@@ -30,6 +30,9 @@ This will generator the boilerplate angular controller and tests. Full docs [her
 ### CSS Dependancies
 All css dependancies are automatically wired from bower_components into index.html via grunt when launching or building. See [here](https://github.com/mlabieniec/angular-etsy/blob/master/app/index.html#L11) and [here](https://github.com/mlabieniec/angular-etsy/blob/master/Gruntfile.js#L179) for details.
 
+### Local Storage
+Data is stored via local storage driver, and $scope bindings provided by [angular-local-storage](https://github.com/grevory/angular-local-storage).
+
 ## Testing
 
 Running `grunt test` will run the unit tests with karma. All tests are located in the /test directory, to create new tests it's easiest if you use [generator-angular](https://github.com/yeoman/generator-angular), than modify as needed.
