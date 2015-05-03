@@ -26,8 +26,6 @@ angular
   .config(function ($routeProvider,$mdThemingProvider,localStorageServiceProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('deep-purple');
-    //$mdThemingProvider.theme('docs-dark')
-    //    .primaryPalette('blue-grey');
     localStorageServiceProvider
       .setPrefix('etsyApp');
     $routeProvider
