@@ -11,6 +11,7 @@ To get up and running:
 1. `npm install`
 2. `npm install grunt-cli bower -g`
 3. `grunt serve`
+4. Add your [Etsy API Key](https://www.etsy.com/developers/register) in [app/scripts/app.js](https://github.com/mlabieniec/angular-etsy/blob/master/app/scripts/app.js#L43)
 
 Run `grunt` for building, all files will be minified and gzip'd to /dist. Run `grunt serve` for running with livereload in development.
 
