@@ -36,7 +36,7 @@ angular.module('etsyApp')
                 'id':product.category_path_ids[i],
                 'label':product.category_path[i],
                 'selected':true
-              }
+              };
             }
         });
         
@@ -50,7 +50,7 @@ angular.module('etsyApp')
           if (product.category_path_ids[i] === cat.id) {
             count++;
           }
-        };
+        }
       });
       return count;
     };
