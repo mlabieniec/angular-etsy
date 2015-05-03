@@ -8,10 +8,9 @@ Currently best viewed in [Google Chrome](https://google.com/chrome)
 
 To get up and running:
 
-1. npm install
-2. bower install
-2. npm install grunt-cli -g
-3. grunt serve
+1. `npm install`
+2. `npm install grunt-cli bower -g`
+3. `grunt serve`
 
 Run `grunt` for building, all files will be minified and gzip'd to /dist. Run `grunt serve` for running with livereload in development.
 
