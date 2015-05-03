@@ -14,6 +14,8 @@ angular.module('etsyApp')
     
     $scope.page = 1;
 
+    $scope.etsyApiKey = "ez1dnf9z37v2pdunpcrufkrk";
+
     var buildToggler = function(navID) {
       var debounceFn =  $mdUtil.debounce(function(){
             $mdSidenav(navID)
