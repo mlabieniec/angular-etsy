@@ -7,6 +7,8 @@ An example app using [Angular JS](https://angularjs.org), [Google Material Desig
 Best viewed in [Google Chrome](https://google.com/chrome)
 
 ## Overview
+The angular-etsy app is a very light, 100% client side app for viewing Etsy active listings. It uses the Etsy JSONP interface, in conjunction with an angular directive to load and display a material ui card listing of products. There are no dependancies outside of angular libraries, angular-material, and angular-local-storage. You can add dependancies with bower install, and they will automatically be added and included to your index.html and karma config.
+
 The Etsy API JSONP interface is handled with a directive since it requires loading a javascript file (to deal with CORS). This way the product listing can potentially be injected into any view, all that is needed is to inject the Etsy API key. The main Etsy configuration is set as an angular constant in the app config, so you simply need to inject the 'ETSY' provider into your component. This way, other services can use the same API key and url for other calls if extended. 
 
 Google Material is used for the UI for simplicity, responsiveness, and rapid prototyping, and well, cause it looks cool and I'm really tired of bootstrap :) The local storage provider is setup to use a binding, instead o creating a service to avoid the need of redudancy and the need to inject an additional service into any other components. To use local storage, simply inject the local storage provider, and bind to a $scope variable. This way you only need to interact with your $scope as usual. See below for more details on local storage.
