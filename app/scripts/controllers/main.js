@@ -44,6 +44,18 @@ angular.module('etsyApp')
         
       }
     });
+
+    $scope.onProductCardHover = function(product) {
+      var el = document.getElementById('prod_card_toolbar_'+product.listing_id);
+      var elem = angular.element(el);
+      elem.addClass('active');
+    };
+
+    $scope.onProductCardOut = function(product) {
+      var el = document.getElementById('prod_card_toolbar_'+product.listing_id);
+      var elem = angular.element(el);
+      elem.removeClass('active');
+    };
     
     $scope.getProductCount = function(cat) {
       var count = 0;

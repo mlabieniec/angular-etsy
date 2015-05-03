@@ -46,6 +46,23 @@ html,body {
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+@-webkit-keyframes fadeInAndDrop { from { opacity:0;top:-60px; } to { opacity:1;top:0px; } }
+@-moz-keyframes fadeInAndDrop { from { opacity:0;top:-60px; } to { opacity:1;top:0px; } }
+@keyframes fadeInAndDrop { from { opacity:0;top:-60px; } to { opacity:1;top:0px; } }
+
+@-webkit-keyframes fadeOutAndUp { from { opacity:1;top:0px; } to { opacity:0;top:-60px; } }
+@-moz-keyframes fadeOutAndUp { from { opacity:1;top:0px; } to { opacity:0;top:-60px; } }
+@keyframes fadeOutAndUp { from { opacity:1;top:0px; } to { opacity:0;top:-60px; } }
+
+/* product hover animations */
+@-webkit-keyframes cardZoom { from { box-shadow:0px 2px 5px 0 rgba(0, 0, 0, 0.26); } to { box-shadow:0px 2px 50px 0 rgba(0, 0, 0, 0.26); } }
+@-moz-keyframes cardZoom { from { box-shadow:0px 2px 5px 0 rgba(0, 0, 0, 0.26); } to { box-shadow:0px 2px 50px 0 rgba(0, 0, 0, 0.26); } }
+@keyframes cardZoom { from { box-shadow:0px 2px 5px 0 rgba(0, 0, 0, 0.26); } to { box-shadow:0px 2px 50px 0 rgba(0, 0, 0, 0.26); } }
+
+@-webkit-keyframes cardDown { from { box-shadow:0px 2px 50px 0 rgba(0, 0, 0, 0.26); } to { box-shadow:0px 2px 5px 0 rgba(0, 0, 0, 0.26); } }
+@-moz-keyframes cardDown { from { box-shadow:0px 2px 50px 0 rgba(0, 0, 0, 0.26); } to { box-shadow:0px 2px 5px 0 rgba(0, 0, 0, 0.26); } }
+@keyframes cardDown { from { box-shadow:0px 2px 50px 0 rgba(0, 0, 0, 0.26); } to { box-shadow:0px 2px 5px 0 rgba(0, 0, 0, 0.26); } }
  
 .product-grid-item.ng-enter {
   opacity:0;  /* make things invisible upon start */
@@ -67,17 +84,69 @@ html,body {
 .product-card {
   height:340px;
   width:430px;
+  overflow:hidden;
+  -webkit-animation:cardDown ease-in 1;
+  -moz-animation:cardDown ease-in 1;
+  animation:cardDown ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:0.3s;
+  -moz-animation-duration:0.3s;
+  animation-duration:0.3s;
+}
+
+.product-card:hover {
+  -webkit-animation:cardZoom ease-in 1;
+  -moz-animation:cardZoom ease-in 1;
+  animation:cardZoom ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:0.3s;
+  -moz-animation-duration:0.3s;
+  animation-duration:0.3s;
+}
+
+.product-card-toolbar {
+  position:relative;
+
+  -webkit-animation:fadeOutAndUp ease-out 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation:fadeOutAndUp ease-out 1;
+  animation:fadeOutAndUp ease-out 1;
+
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:0.3s;
+  -moz-animation-duration:0.3s;
+  animation-duration:0.3s;
+}
+
+.product-card-toolbar.active {
+  -webkit-animation:fadeInAndDrop ease-out 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation:fadeInAndDrop ease-out 1;
+  animation:fadeInAndDrop ease-out 1;
+
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:0.3s;
+  -moz-animation-duration:0.3s;
+  animation-duration:0.3s;
 }
 
 .product-image-wrapper {
   height:285px;
   overflow:hidden;
   text-align: center;
-  margin: 0 auto;
-}
-
-.product-image-wrapper:hover {
-  opacity: 0.7;
+  margin-top:-65px;
 }
 
 .product-image-wrapper img {

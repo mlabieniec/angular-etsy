@@ -11,7 +11,9 @@
       <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
         
         <md-toolbar class="md-theme-indigo">
-          <h1 class="md-toolbar-tools">Etsy Listings</h1>
+          <h1 class="md-toolbar-tools">
+            <img src="https://www.etsy.com/assets/dist/images/etsylogo.20150423182154.png" />
+          </h1>
         </md-toolbar>
 
         <md-content>
@@ -47,7 +49,7 @@
             <span flex></span>
             <md-input-container md-theme="dark">
                 <label for="testInput">Search Products</label>
-                <input type="text" data-ng-model="productsFilter" md-sidenav-focus>
+                <input type="text" data-ng-model="productsFilter" style="color:white;" md-sidenav-focus>
               </md-input-container>
             <md-button class="md-icon-button" aria-label="Favorite">
               <md-icon md-svg-icon="images/icons/favorite.svg" style="color: white;" data-ng-click="toggleBookmarks()"></md-icon>

@@ -7,9 +7,19 @@ An example app using [Angular JS](https://angularjs.org), [Google Material Desig
 Best viewed in [Google Chrome](https://google.com/chrome)
 
 ## Overview
-The Etsy API JSONP interface is handled with a directive instead of a service since it requires loading a javascript file (to deal with CORS). This way the product listing could potentially be injected into any view, all that is needed is to inject the API key. The main Etsy configuration is set as a constant in the app configuration so that it may be used to make other calls if needed, you simply need to inject the 'ETSY' provider into your component. Google Material was used for the UI for simplicity, responsiveness, and rapid component prototyping, and well, cause it looks cool and I'm really tired of bootstrap :) Local storage is set as a binding in the controller instead of a service so as to avoid the need of injecting any other components, simply inject the local storage provider and bind to a $scope variable this way you only need to interact with your $scope as usual.
+The angular-etsy app is a very light, 100% client side app for viewing Etsy active listings. It uses the Etsy JSONP interface, in conjunction with an angular directive to load and display a material ui card listing of products. There are no dependancies outside of angular libraries, angular-material, and angular-local-storage. You can add dependancies with bower install, and they will automatically be added and included to your index.html and karma config.
 
-A "Load More" is used to load more products, instead of pagination to simplify the $scope bindings, and allow for a more fluid interface. Infinite scroll could be added to improve the overall user experience.
+The Etsy API JSONP interface is handled with a directive since it requires loading a javascript file (to deal with CORS). This way the product listing can potentially be injected into any view, all that is needed is to inject the Etsy API key. The main Etsy configuration is set as an angular constant in the app config, so you simply need to inject the 'ETSY' provider into your component. This way, other services can use the same API key and url for other calls if extended. 
+
+Google Material is used for the UI for simplicity, responsiveness, and rapid prototyping, and well, cause it looks cool and I'm really tired of bootstrap :) The local storage provider is setup to use a binding, instead o creating a service to avoid the need of redudancy and the need to inject an additional service into any other components. To use local storage, simply inject the local storage provider, and bind to a $scope variable. This way you only need to interact with your $scope as usual. See below for more details on local storage.
+
+Google Material also makes is simple to change the app palette, or create your own. Just change the [primaryPalette](https://github.com/mlabieniec/angular-etsy/blob/master/app/scripts/app.js#L28) or [create your own](https://material.angularjs.org/#/Theming/03_configuring_a_theme). The brown palette was chosen to match better the Etsy brand.
+
+Font Awesome is included for icons. This way no additional images are needed for icons and a plethora of icons are available, see [here](http://fortawesome.github.io/Font-Awesome/icons/) for all available icons.
+
+A "Load More" is used to load more products from the API instead of pagination, to simplify $scope bindings, and allow for a more fluid, simple interface. Infinite scroll could be added to improve the overall user experience.
+
+Categories for products are dynamically parsed from the current product list. This way only categories that are displaying products are listed in the left side navigation. This way, no additional API calls are needed to get categories for products, and $scope bindings take care of the showing/hiding of the products.
 
 ## Build & development
 
