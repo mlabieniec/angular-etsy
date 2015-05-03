@@ -13,6 +13,8 @@ The Etsy API JSONP interface is handled with a directive since it requires loadi
 
 Google Material is used for the UI for simplicity, responsiveness, and rapid prototyping, and well, cause it looks cool and I'm really tired of bootstrap :) The local storage provider is setup to use a binding, instead o creating a service to avoid the need of redudancy and the need to inject an additional service into any other components. To use local storage, simply inject the local storage provider, and bind to a $scope variable. This way you only need to interact with your $scope as usual. See below for more details on local storage.
 
+Google Material also makes is simple to change the app palette, or create your own. Just change the [primaryPalette](https://github.com/mlabieniec/angular-etsy/blob/master/app/scripts/app.js#L28) or [create your own](https://material.angularjs.org/#/Theming/03_configuring_a_theme). The brown palette was chosen to match better the Etsy brand.
+
 Font Awesome is included for icons. This way no additional images are needed for icons and a plethora of icons are available, see [here](http://fortawesome.github.io/Font-Awesome/icons/) for all available icons.
 
 A "Load More" is used to load more products from the API instead of pagination, to simplify $scope bindings, and allow for a more fluid, simple interface. Infinite scroll could be added to improve the overall user experience.
