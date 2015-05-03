@@ -40,5 +40,6 @@ angular
       });
   })
   .constant('ETSY', {
-    key: 'YOUR_API_KEY'
+    key: 'YOUR_API_KEY',
+    url: 'https://openapi.etsy.com/v2/'
   });

@@ -12,7 +12,7 @@ angular.module('etsyApp')
 
   	$scope.unbindBookmarks = localStorageService.bind($scope, 'bookmarks');
     $scope.page = 1;
-    $scope.etsyApiKey = ETSY.key;//"ez1dnf9z37v2pdunpcrufkrk";
+    $scope.etsyApiKey = ETSY.key;
 
     var buildToggler = function(navID) {
       var debounceFn =  $mdUtil.debounce(function(){

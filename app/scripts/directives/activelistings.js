@@ -7,7 +7,7 @@
  * # activeListings
  */
 angular.module('etsyApp')
-  .directive('activeListings', function ($log,$window) {
+  .directive('activeListings', function ($log,$window,ETSY) {
     return {
       restrict: 'A',
       templateUrl:'views/products.html',
@@ -30,8 +30,8 @@ angular.module('etsyApp')
 	     }
        scope.$watch('page',function(page) {
         scope.loading = true;
-        var s = document.createElement('script'); // use global document since Angular's $document is weak
-            s.src = 'https://openapi.etsy.com/v2/listings/active.js?callback=getEtsyData&includes=Images,Shop&page='+page+'&api_key='+attrs.key;
+        var s = document.createElement('script');
+            s.src = ETSY.url+'listings/active.js?callback=getEtsyData&includes=Images,Shop&page='+page+'&api_key='+attrs.key;
         document.body.appendChild(s);
        });
       }
