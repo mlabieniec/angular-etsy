@@ -16,7 +16,7 @@ To get up and running:
 Run `grunt` for building, all files will be minified and gzip'd to /dist. Run `grunt serve` for running with livereload in development.
 
 ### CSS Dependancies
-All css dependancies are automatically wired from bower_components into index.html via grunt when launching or building. See (here)[https://github.com/mlabieniec/angular-etsy/blob/master/app/index.html#L11] and (here)[https://github.com/mlabieniec/angular-etsy/blob/master/Gruntfile.js#L179] for details.
+All css dependancies are automatically wired from bower_components into index.html via grunt when launching or building. See [here](https://github.com/mlabieniec/angular-etsy/blob/master/app/index.html#L11) and [here](https://github.com/mlabieniec/angular-etsy/blob/master/Gruntfile.js#L179) for details.
 
 ## Testing
 
