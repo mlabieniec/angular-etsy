@@ -15,6 +15,16 @@ To get up and running:
 
 Run `grunt` for building, all files will be minified and gzip'd to /dist. Run `grunt serve` for running with livereload in development.
 
+### Generating Components
+You can generate new controllers, models, routes, views, and tests with [generator-angular](https://github.com/yeoman/generator-angular).
+
+1. Install the generators
+    npm install -g yo generator-karma generator-angular
+2. Generate a controller called 'user'
+    yo angular:controller user
+
+This will generator the boilerplate angular controller and tests.
+
 ### CSS Dependancies
 All css dependancies are automatically wired from bower_components into index.html via grunt when launching or building. See [here](https://github.com/mlabieniec/angular-etsy/blob/master/app/index.html#L11) and [here](https://github.com/mlabieniec/angular-etsy/blob/master/Gruntfile.js#L179) for details.
 
