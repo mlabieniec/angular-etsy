@@ -5,6 +5,7 @@ An example app using [angular](https://angularjs.org), [Google Material Design](
 ## Build & development
 
 To get up and running:
+
 1. npm install
 2. bower install
 2. npm install grunt-cli -g
