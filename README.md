@@ -20,7 +20,7 @@ All css dependancies are automatically wired from bower_components into index.ht
 
 ## Testing
 
-Running `grunt test` will run the unit tests with karma.
+Running `grunt test` will run the unit tests with karma. All tests are located in the /test directory, to create new tests it's easiest if you use [generator-angular](https://github.com/yeoman/generator-angular), than modify as needed.
 
 ## Etsy API Links
 
