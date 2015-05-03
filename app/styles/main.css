@@ -69,8 +69,19 @@ html,body {
   width:430px;
 }
 
-.product-image {
+.product-image-wrapper {
   height:285px;
+  overflow:hidden;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.product-image-wrapper:hover {
+  opacity: 0.7;
+}
+
+.product-image-wrapper img {
+  cursor: pointer;
 }
 
 .product-title {

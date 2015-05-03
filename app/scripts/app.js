@@ -26,8 +26,10 @@ angular
   .config(function ($routeProvider,$mdThemingProvider,localStorageServiceProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('deep-purple');
+
     localStorageServiceProvider
       .setPrefix('etsyApp');
+    
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',

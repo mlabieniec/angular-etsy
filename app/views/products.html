@@ -61,7 +61,9 @@
 				    </div>
 				</md-toolbar>
             	
-            	<img class="product-image" src="{{product.Images[0].url_570xN}}" alt="Product Image"/>
+            	<div class="product-image-wrapper">
+            		<img src="{{product.Images[0].url_570xN}}" alt="Product Image" data-ng-click="openProductDetails($event,product)"/>
+            	</div>
             	
             	<md-card-content>
 
