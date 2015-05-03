@@ -8,13 +8,11 @@
  * Controller of the etsyApp
  */
 angular.module('etsyApp')
-  .controller('MainCtrl', function ($scope,$log,$sce,$mdSidenav,$mdUtil,$mdDialog,localStorageService) {
+  .controller('MainCtrl', function ($scope,$log,$sce,$mdSidenav,$mdUtil,$mdDialog,localStorageService,ETSY) {
 
   	$scope.unbindBookmarks = localStorageService.bind($scope, 'bookmarks');
-    
     $scope.page = 1;
-
-    $scope.etsyApiKey = "ez1dnf9z37v2pdunpcrufkrk";
+    $scope.etsyApiKey = ETSY.key;//"ez1dnf9z37v2pdunpcrufkrk";
 
     var buildToggler = function(navID) {
       var debounceFn =  $mdUtil.debounce(function(){

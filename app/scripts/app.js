@@ -24,15 +24,12 @@ angular
     'LocalStorageModule'
   ])
   .config(function ($routeProvider,$mdThemingProvider,localStorageServiceProvider) {
-
     $mdThemingProvider.theme('default')
         .primaryPalette('deep-purple');
     //$mdThemingProvider.theme('docs-dark')
     //    .primaryPalette('blue-grey');
-
     localStorageServiceProvider
-    .setPrefix('etsyApp');
-
+      .setPrefix('etsyApp');
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -41,4 +38,7 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .constant('ETSY', {
+    key: 'YOUR_API_KEY'
   });
