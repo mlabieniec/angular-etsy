@@ -26,7 +26,9 @@ angular.module('etsyApp')
       			scope.$apply();
       		};
 	     } else if (!attrs.key) {
-	    	$log.error('No etsy key specified on activeListings directive!');
+	    	$log.error('No etsy key specified on activeListings directive');
+        element.html('<strong>No Etsy API Key was provided</strong>');
+        scope.loading = false;
 	     }
        scope.$watch('page',function(page) {
         scope.loading = true;

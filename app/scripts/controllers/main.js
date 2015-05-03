@@ -28,6 +28,8 @@ angular.module('etsyApp')
     $scope.toggleBookmarks = buildToggler('right');
     $scope.categories = {};
 
+    // the runtime complexity of this could get out of hand, should improve
+    // to possibly start at effective_offset
     var productListener = $scope.$watch('products',function(products) {
       if (products && products.length > 0) {
         angular.forEach(products, function(product) {
@@ -42,7 +44,7 @@ angular.module('etsyApp')
         
       }
     });
-
+    
     $scope.getProductCount = function(cat) {
       var count = 0;
       angular.forEach($scope.products,function(product) {
@@ -72,11 +74,13 @@ angular.module('etsyApp')
 
     $scope.numBookmarks = function() {
 	    var size = 0, key;
-	    for (key in $scope.bookmarks) {
-	        if ($scope.bookmarks.hasOwnProperty(key)) {
-            size++;
-          }
-	    }
+      if ($scope.bookmarks) {
+  	    for (key in $scope.bookmarks) {
+  	        if ($scope.bookmarks.hasOwnProperty(key)) {
+              size++;
+            }
+  	    }
+      }
 	    return size;
     };
 
