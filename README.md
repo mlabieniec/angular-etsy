@@ -1,4 +1,4 @@
-# Etsy Active Listing Browser
+# Etsy Active Listing Browser [![Build Status](https://travis-ci.org/mlabieniec/angular-etsy.svg)](https://travis-ci.org/mlabieniec/angular-etsy)
 
 An example app using [Angular JS](https://angularjs.org), [Google Material Design](http://www.google.com/design/spec/material-design/introduction.html) with [angular-material](https://material.angularjs.org). The app is 100% client side, and allows you to search and bookmark [etsy](https://etsy.com) active listings using the etsy JSONP REST API.
 
