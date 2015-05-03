@@ -25,8 +25,8 @@
 				        	title="Favorite"
 				        	aria-label="Favorite"
 				        	data-ng-show="isProductBookmarked(product)"
-				        	data-ng-click="removeBookmark(product)">
-				        	<md-icon class="fa fa-heart" style="color:green;"></md-icon>
+				        	data-ng-click="removeBookmark(product)" class="md-raised">
+				        	<md-icon class="fa fa-heart"></md-icon>
 				        	<md-tooltip>Remove from Your Bookmarks</md-tooltip>
 				        </md-button>
 				        
@@ -58,8 +58,6 @@
             	<md-card-content>
 
 					<p class="md-title product-title" data-ng-bind-html="product.title"></p>
-					
-					
 
 				</md-card-content>
             </md-card>
@@ -69,15 +67,15 @@
     <div 
     	layout="row" 
     	layout-align="center center"
-    	layout-padding
+    	layout-margin
     	flex>
 
-    <md-progress-circular 
-      md-mode="indeterminate" 
-      data-ng-show="loading"></md-progress-circular>
+    <md-progress-linear 
+    	data-ng-show="loading"
+    	md-mode="indeterminate"></md-progress-linear>
   	
   	<md-button 
-  		class="md-primary" 
+  		class="md-raised" 
   		data-ng-if="products" 
   		data-ng-click="loadMoreListings()" 
   		data-ng-show="!loading">

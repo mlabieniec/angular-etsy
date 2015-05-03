@@ -1,7 +1,11 @@
 <md-dialog aria-label="{{product.title}}" layout-margin>
-  <md-toolbar md-scroll-shrink>
-    <div layout-padding>
+  <md-toolbar scroll-shrink>
+    <div class="md-toolbar-tools" layout-padding>
       <h4 data-ng-bind-html="(product.Shop.title)?product.Shop.title:product.title"></h4>
+      <span flex></span>
+      <md-button data-ng-href="product.Shop.url">
+      <md-icon class="fa fa-external-link"></md-icon>
+      Visit Shop</md-button>
     </div>
   </md-toolbar>
   <md-dialog-content class="sticky-container" layout-padding>
@@ -12,9 +16,9 @@
     </div>
   </md-dialog-content>
   <div class="md-actions" layout="row">
-    <md-button data-ng-href="{{product.Shop.url}}" target="_blank" class="md-primary">
-      <md-icon class="fa fa-external-link"></md-icon>
-      Visit Shop on Etsy
+    <md-button data-ng-href="{{product.url}}" target="_blank" class="md-primary">
+      <md-icon class="fa fa-shopping-cart"></md-icon>
+      View Item on Etsy
     </md-button>
     <md-button ng-click="closeDetails()" class="md-primary">
       <md-icon class="fa fa-times"></md-icon>

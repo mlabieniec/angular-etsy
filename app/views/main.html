@@ -8,9 +8,12 @@
     <md-toolbar class="main-toolbar">
       <div class="md-toolbar-tools">
         <h2>
-          <md-icon class="fa fa-shopping-cart"></md-icon>&nbsp;
-          <span>Etsy Listings</span>
-          <small>( {{products.length}} / {{etsy.count | number}} )</small>
+          <md-button class="md-icon-button" aria-label="Settings">
+            <md-icon md-svg-icon="images/icons/menu.svg"></md-icon>
+          </md-button>
+          <h2>Etsy <span hide-sm>Listings</span></h2>
+          &nbsp;
+          <small class="page-text" data-ng-if="etsy.count" hide-sm>( Viewing <strong>{{products.length}}</strong> out of <strong>{{etsy.count | number}}</strong> total products)</small>
         </h2>
         <span flex></span>
         <md-input-container md-theme="docs-dark">
@@ -19,9 +22,7 @@
           </md-input-container>
         <md-button class="md-icon-button" aria-label="Favorite">
           <md-icon md-svg-icon="images/icons/favorite.svg" style="color: white;" data-ng-click="toggleBookmarks()"></md-icon>
-        </md-button>
-        <md-button class="md-icon-button" aria-label="More">
-          <md-icon md-svg-icon="images/icons/more_vert.svg" style="color: white;" ></md-icon>
+          <md-tooltip>{{numBookmarks()}}</md-tooltip>
         </md-button>
       </div>
     </md-toolbar>
@@ -54,15 +55,9 @@
       </md-toolbar>
       
       <md-content layout-padding>
-          <md-input-container>
-            <label for="bookmarkInput">Search Bookmarks</label>
-            <input type="text" id="bookmarkInput" data-ng-model="bookmarksFilter" md-sidenav-focus>
-          </md-input-container>
         <md-content>
-          <md-list>
             <md-subheader class="md-no-sticky">{{(numBookmarks() === 0)?'No':numBookmarks()}} Bookmark{{(numBookmarks() > 1 || numBookmarks() === 0)?'s':''}}</md-subheader>
-            <md-list-item class="md-3-line" ng-repeat="bookmark in bookmarks | filter:bookmarksFilter">
-              <md-card>
+              <md-card data-ng-repeat="bookmark in bookmarks | filter:bookmarkFilter">
                 <md-card-content>
                   <p class="md-title" data-ng-bind-html="bookmark.title"></p>
                   <div layout-align="left center" layout="row">
@@ -87,8 +82,6 @@
                    </div>
                 </md-card-content>
               </md-card>
-            </md-list-item>
-          </md-list>
         
         </md-content>
 
