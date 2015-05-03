@@ -1,8 +1,19 @@
 # Etsy Active Listing Browser [![Build Status](https://travis-ci.org/mlabieniec/angular-etsy.svg)](https://travis-ci.org/mlabieniec/angular-etsy)
 
+![Screenshot](https://raw.githubusercontent.com/mlabieniec/angular-etsy/master/app/images/screenshot.png "Screenshot")
+
 An example app using [Angular JS](https://angularjs.org), [Google Material Design](http://www.google.com/design/spec/material-design/introduction.html) with [angular-material](https://material.angularjs.org). The app is 100% client side, and allows you to search and bookmark [etsy](https://etsy.com) active listings using the etsy JSONP REST API.
 
-Currently best viewed in [Google Chrome](https://google.com/chrome)
+Best viewed in [Google Chrome](https://google.com/chrome)
+
+## Overview
+The Etsy API JSONP interface is handled with a directive since it requires loading a javascript file (to deal with CORS). This way the product listing can potentially be injected into any view, all that is needed is to inject the Etsy API key. The main Etsy configuration is set as an angular constant in the app config, so you simply need to inject the 'ETSY' provider into your component. This way, other services can use the same API key and url for other calls if extended. 
+
+Google Material is used for the UI for simplicity, responsiveness, and rapid prototyping, and well, cause it looks cool and I'm really tired of bootstrap :) The local storage provider is setup to use a binding, instead o creating a service to avoid the need of redudancy and the need to inject an additional service into any other components. To use local storage, simply inject the local storage provider, and bind to a $scope variable. This way you only need to interact with your $scope as usual. See below for more details on local storage.
+
+A "Load More" is used to load more products from the API instead of pagination, to simplify $scope bindings, and allow for a more fluid, simple interface. Infinite scroll could be added to improve the overall user experience.
+
+Categories for products are dynamically parsed from the current product list. This way only categories that are displaying products are listed in the left side navigation. This way, no additional API calls are needed to get categories for products, and $scope bindings take care of the showing/hiding of the products.
 
 ## Build & development
 
